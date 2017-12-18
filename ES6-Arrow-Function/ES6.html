@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.具有一个参数的简单函数
+        var single = a => a
+        single('hello,world')
+        console.log(single('hello,world'))//hello,world
+
+
+        //2.没有参数的需要用在箭头前加上小括号
+        var log = () => {
+            alert('no param')
+        }
+        //log()
+
+
+        //3.多个参数需要用到小括号，参数间逗号间隔，例如两个数字相加
+        var add = (a, b) => a + b
+        add(3, 5)
+        console.log(add(3, 5))  //8
+
+
+        //4.函数体多条语句需要用到大括号
+        var add = (a, b, c) => {
+            if (typeof a == 'number' && typeof b == 'number' && typeof c == 'number') {
+                return a + b + c
+            } else {
+                return 0
+            }
+        }
+        console.log(add(1, 2, 3))
+
+
+        //5. 返回对象时需要用小括号包起来，因为大括号被占用解释为代码块了
+        var getHash = arr => {
+            return ({
+                name: 'jack',
+                age: 30
+            })
+        }
+        console.log(getHash())   //{name: "Jack", age: 30}
+        console.log(JSON.stringify(getHash())) // {"name":"Jack","age":30}
+
+
+        //6. 直接作为事件handler
+        document.addEventListener('click', ev => {
+            console.log(ev)
+        })
+
+
+        //7. 作为数组排序回调
+        var arr = [1, 9, 2, 4, 3, 8].sort((a, b) => {
+            if (a - b > 0) {
+                return 1
+            } else {
+                return - 1
+            }
+        })
+        console.log(arr)  // [1, 2, 3, 4, 8, 9]
+    </script>
+</body>
+
+</html>
